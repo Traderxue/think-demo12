@@ -6,11 +6,11 @@ use think\facade\Request;
 use app\BaseController;
 use think\facade\Filesystem;
 
-class Upload extends BaseController
+class Upload
 {
     function index()
     {
-        $file = request()->file('image');
+        $file = request()->file('file');
         $savename = Filesystem::disk("public")->putFile("topic", $file, "md5");
         if (!$savename) {
             return null;
