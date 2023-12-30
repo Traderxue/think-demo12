@@ -51,4 +51,8 @@ class Product extends BaseController{
         return  $this->result->success("获取数据成功",$list);
     }
 
+    function buy(Request $request){
+        $post = $request->post();
+        
+    }
 }

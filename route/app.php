@@ -47,7 +47,14 @@ Route::group("/product",function(){
 
     Route::remove("/remove/:id","product/remove");      //下架
 
-    Route::page("/page","product/page");
+    Route::get("/page","product/page");
 
+});
+
+Route::group("/userproduct",function(){
+
+    Route::post("/buy","userproduct/buy");
+
+    Route::get("/page","userproduct/page");
 
 });
