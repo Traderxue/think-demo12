@@ -90,4 +90,10 @@ class User extends BaseController
         }
         return $this->result->error("修改用户资料失败");
     }
+
+    function getUserById($id){
+        $user = UserModel::where("id",$id)->find();
+        return $this->result->success("成功",$id);
+    }
+
 }
