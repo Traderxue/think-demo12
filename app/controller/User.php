@@ -93,7 +93,20 @@ class User extends BaseController
 
     function getUserById($id){
         $user = UserModel::where("id",$id)->find();
-        return $this->result->success("成功",$id);
+        return $this->result->success("成功",$user);
     }
+
+    function page(Request $request){
+        $page = $request->param("page");
+        $pageSize = $request->param("pageSize");
+        $username = $request->param("username");
+
+        $list = UserModel::where("username","like","%{$username}%")->paginate([
+            "page"=>$page,
+            "pageSize"=>$pageSize
+        ]);
+        return $this->result->success("获取数据成功",$list);
+    }
+
 
 }

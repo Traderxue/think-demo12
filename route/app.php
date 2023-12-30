@@ -23,9 +23,9 @@ Route::group("/user", function () {
 
     Route::post("/login", "user/login");
 
-    Route::post("/edit", "user/edit");
+    Route::post("/edit", "user/edit");      //需要上传图片要用formFata
 
-    Route::get("/get/:id", "user/getUseryId");      //需要上传图片要用formFata
+    Route::get("/get/:id", "user/getUseryId");    
 });
 
 Route::group("/bill", function () {
@@ -39,4 +39,15 @@ Route::group("/bill", function () {
     Route::get("/get/:u_id","bill/getByUid");
 
     Route::get("/page","bill/page");
+});
+
+Route::group("/product",function(){
+
+    Route::post("/add","product/add");
+
+    Route::remove("/remove/:id","product/remove");      //下架
+
+    Route::page("/page","product/page");
+
+
 });
