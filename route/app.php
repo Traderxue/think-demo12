@@ -25,7 +25,7 @@ Route::group("/user", function () {
 
     Route::post("/edit", "user/edit");      //需要上传图片要用formFata
 
-    Route::get("/get/:id", "user/getUseryId");    
+    Route::get("/get/:id", "user/getUseryId");
 });
 
 Route::group("/bill", function () {
@@ -36,25 +36,38 @@ Route::group("/bill", function () {
 
     Route::put("/verify/:id", "bill/verify");
 
-    Route::get("/get/:u_id","bill/getByUid");
+    Route::get("/get/:u_id", "bill/getByUid");
 
-    Route::get("/page","bill/page");
+    Route::get("/page", "bill/page");
 });
 
-Route::group("/product",function(){
+Route::group("/product", function () {
 
-    Route::post("/add","product/add");
+    Route::post("/add", "product/add");
 
-    Route::remove("/remove/:id","product/remove");      //下架
+    Route::remove("/remove/:id", "product/remove");      //下架
 
-    Route::get("/page","product/page");
-
+    Route::get("/page", "product/page");
 });
 
-Route::group("/userproduct",function(){
+Route::group("/userproduct", function () {
 
-    Route::post("/buy","userproduct/buy");
+    Route::post("/buy", "userproduct/buy");
 
-    Route::get("/page","userproduct/page");
+    Route::get("/page", "userproduct/page");
+});
 
+Route::group("/admin", function () {
+
+    Route::post("/add", "admin/add");
+
+    Route::post("/login", "admin/login");
+
+    Route::delete("/delete", "admin/delete");
+
+    Route::post("/edit", "admin/edit");
+
+    Route::post("/resetpwd", "admin/resetPwd");
+
+    Route::get("/page", "admin/page");
 });
